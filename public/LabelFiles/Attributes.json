@@ -1,0 +1,927 @@
+{
+  "0x000": {
+    "name": "Walk Initial Velocity",
+    "type": "float",
+    "description": "The starting velocity obtained the moment the character starts walking."
+  },
+  "0x004": {
+    "name": "Walk Acceleration",
+    "type": "float",
+    "description": "The speed of acceleration while walking."
+  },
+  "0x008": {
+    "name": "Walk Maximum Velocity",
+    "type": "float",
+    "description": "The maximum velocity obtainable while walking."
+  },
+  "0x00C": {
+    "name": "Ground Friction",
+    "type": "float",
+    "description": "The speed which the character's horizontal velocity decreases on its own on the ground."
+  },
+  "0x010": {
+    "name": "Dash & StopTurn Initial Velocity",
+    "type": "float",
+    "description": "The starting velocity obtained the moment the character starts a Dash."
+  },
+  "0x014": {
+    "name": "Dash & Run Acceleration A",
+    "type": "float",
+    "description": "The speed at which the character decelerates during Dash, Run, and Turn Run. Combines with 0x018."
+  },
+  "0x018": {
+    "name": "Dash & Run Acceleration B",
+    "type": "float",
+    "description": "The speed at which the character accelerates during Dash, Run, and Turn Run. Combines with 0x014."
+  },
+  "0x01C": {
+    "name": "Dash & Run Terminal Velocity",
+    "type": "float",
+    "description": "The velocity you will accelerate to during a Dash or Run."
+  },
+  "0x020": {
+    "name": "Run Acceleration?",
+    "type": "float",
+    "description": "Possibly the time it takes for the character to reach full speed during a run?"
+  },
+  "0x024": {
+    "name": "General Grounded Max Horizontal Velocity",
+    "type": "float",
+    "description": "The maximum horizontal velocity you can have while on the ground."
+  },
+  "0x028": {
+    "name": "Dash Cancel Frame Window?",
+    "type": "int",
+    "description": "Possibly the amount of frames you have to cancel your dash animation."
+  },
+  "0x02C": {
+    "name": "Guard On Max Momentum",
+    "type": "float",
+    "description": "The maximum horizontal momentum you can have when entering shield."
+  },
+  "0x030": {
+    "name": "Jump Startup Time",
+    "type": "int",
+    "description": "The time in frames it takes for your character to lift off of the ground when jumping."
+  },
+  "0x034": {
+    "name": "Jump H Initial Velocity",
+    "type": "float",
+    "description": "The starting horizontal velocity the character obtains when jumping."
+  },
+  "0x038": {
+    "name": "Jump V Initial Velocity",
+    "type": "float",
+    "description": "The starting vertical velocity the character obtains when jumping."
+  },
+  "0x03C": {
+    "name": "Ground to Air Jump Momentum Multiplier",
+    "type": "float",
+    "description": "The amount of horizontal momentum from the ground that gets added onto a jump."
+  },
+  "0x040": {
+    "name": "Jump H Initial Velocity",
+    "type": "float",
+    "description": "The maximum starting horazontal velocity the character is able to obtain when jumping."
+  },
+  "0x044": {
+    "name": "Hop V Initial Velocity",
+    "type": "float",
+    "description": "The maximum vertical velocity the character obtains when hopping."
+  },
+  "0x048": {
+    "name": "V Air Jump Multiplier",
+    "type": "float",
+    "description": "The velocity obtained from an air jump proportional to the Jump V Initial Velocity."
+  },
+  "0x04C": {
+    "name": "H Air Jump Multiplier",
+    "type": "float",
+    "description": "The velocity obtained from an air jump proportional to the Jump H Initial Velocity."
+  },
+  "0x050": {
+    "name": "Footstool Jump V Initial Velocity",
+    "type": "float",
+    "description": "The starting vertical velocity the character obtains upon performing a footstool jump."
+  },
+  "0x054": {
+    "name": "Footstool Hop V Initial Velocity",
+    "type": "float",
+    "description": "The starting vertical velocity the character obtains upon performing a footstool hop (quick press)."
+  },
+  "0x058": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x05C": {
+    "name": "Meteor Canceling Window",
+    "type": "float",
+    "description": "Numbers of frames into meteor knockback before the character can perform a meteor cancel."
+  },
+  "0x060": {
+    "name": "Jumps",
+    "type": "int",
+    "description": "The number of consecutive jumps the character is able to perform. (Note: This changes nothing without BEx FighterConfig edits and a Multijump section in Misc.)"
+  },
+  "0x064": {
+    "name": "Gravity",
+    "type": "float",
+    "description": "The speed at which the character accelerates downward."
+  },
+  "0x068": {
+    "name": "Terminal Velocity",
+    "type": "float",
+    "description": "The maximum velocity obtainable due to gravity."
+  },
+  "0x06C": {
+    "name": "V Air Friction",
+    "type": "float",
+    "description": "Appears to have little to no effect, though seems to nullify terminal velocity when set to 0."
+  },
+  "0x070": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x074": {
+    "name": "Air Mobility A",
+    "type": "float",
+    "description": "The speed at which the character is able to maneuver in the air. Combines with 0x078."
+  },
+  "0x078": {
+    "name": "Air Mobility B",
+    "type": "float",
+    "description": "The speed at which the character is able to maneuver in the air. Combines with 0x074."
+  },
+  "0x07C": {
+    "name": "Maximum H Air Mobility",
+    "type": "float",
+    "description": "The maximum horizontal velocity the character is able to obtain in the air using air mobility."
+  },
+  "0x080": {
+    "name": "H Air Friction",
+    "type": "float",
+    "description": "The speed at which the character's horizontal velocity decreases on its own in the air."
+  },
+  "0x084": {
+    "name": "Fastfall Terminal Velocity",
+    "type": "float",
+    "description": "The fastfalling speed of the character. "
+  },
+  "0x088": {
+    "name": "Aerial Max H Velocity",
+    "type": "float",
+    "description": "Applies when double jumping, possibly at other times as well. Appears to always be 2.5 in Project M."
+  },
+  "0x08C": {
+    "name": "Glide Frame Window",
+    "type": "int",
+    "description": "The amount of time (in frames) that the character has to begin a glide after jumping. Leave at 0 for no glide."
+  },
+  "0x090": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x094": {
+    "name": "Jab-2 Input Window",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x098": {
+    "name": "Jab-3 Input Window",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x09C": {
+    "name": "Forward Tilt 2 Input Window",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0A0": {
+    "name": "Forward Tilt 3 Input Window",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0A4": {
+    "name": "Forward Smash 2 Input Window",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0A8": {
+    "name": "Frames to Turn Around",
+    "type": "float",
+    "description": "The number of frames it takes during a slow standing turn before changing direction."
+  },
+  "0x0AC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0B0": {
+    "name": "Weight",
+    "type": "float",
+    "description": "How resiliant the character is to knockback."
+  },
+  "0x0B4": {
+    "name": "Size",
+    "type": "float",
+    "description": "The scaling of the character from their original model size. 1 = 100%, 0.5 = 50%."
+  },
+  "0x0B8": {
+    "name": "Size on Results Screen",
+    "type": "float",
+    "description": "The scaling of the character on the results screen. 1 = 100%, 0.5 = 50%."
+  },
+  "0x0BC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0C0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0C4": {
+    "name": "Shield Size",
+    "type": "float",
+    "description": "The size of the character's shield bubble when it is at full strength."
+  },
+  "0x0C8": {
+    "name": "Shield Break Bounce Velocity",
+    "type": "float",
+    "description": "The velocity at which the character bounces upwards upon having their shield broken."
+  },
+  "0x0CC": {
+    "name": "Shield Minimum Size?",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0D0": {
+    "name": "Item GFX Size",
+    "type": "float",
+    "description": "Increases the size of the healing circle GFX (Food, Maximum Tomato, and Heart Container), the Starman sparkle GFX, and the Bunny Hood."
+  },
+  "0x0D4": {
+    "name": "Respawn Platform Size",
+    "type": "float",
+    "description": "The size of the platform the character respawns on after a K.O."
+  },
+  "0x0D8": {
+    "name": "No effect?",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0DC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0E0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0E4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0E8": {
+    "name": "Rapid Jab Button Mashing?",
+    "type": "int",
+    "description": "Unknown, could relate to button mashing for Rapid Jab (Ex: Pit)."
+  },
+  "0x0EC": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x0F0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x0F4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x0F8": {
+    "name": "Edge Jump H Velocity",
+    "type": "float",
+    "description": "The starting horazontal velocity obtained from an Edge Jump."
+  },
+  "0x0FC": {
+    "name": "Edge Jump V Velocity",
+    "type": "float",
+    "description": "The starting vertical velocity obtained from an Edge Jump."
+  },
+  "0x100": {
+    "name": "Heavy Item Move Speed",
+    "type": "float",
+    "description": "The speed the character has when carrying a heavy item, such as a crate."
+  },
+  "0x104": {
+    "name": "Heavy Item Traction",
+    "type": "float",
+    "description": "The amount of traction the character has when carrying a heavy item, such as a crate."
+  },
+  "0x108": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x10C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x110": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x114": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x118": {
+    "name": "Item Throw Strength",
+    "type": "float",
+    "description": "The speed at which an item is projected when thrown."
+  },
+  "0x11C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x120": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x124": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x128": {
+    "name": "Projectile Weapon Use Move Speed",
+    "type": "float",
+    "description": "The speed at which the character is able to move at while firing a projectile weapon."
+  },
+  "0x12C": {
+    "name": "Projectile Weapon Use F Dash Speed",
+    "type": "float",
+    "description": "The speed at which a character moves during a forward dash while firing a projectile weapon."
+  },
+  "0x130": {
+    "name": "Projectile Weapon Use B Dash Speed",
+    "type": "float",
+    "description": "The speed at which a character moves during a backward dash while firing a projectile weapon."
+  },
+  "0x134": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x138": {
+    "name": "Light Landing Lag",
+    "type": "float",
+    "description": "The length of the character's light landing lag in frames. (Note: <# of real lag frames> = <this value> + 1)"
+  },
+  "0x13C": {
+    "name": "Normal Landing Lag",
+    "type": "float",
+    "description": "The length of the character's normal landing lag in frames. (Note: <# of real lag frames> = <this value> + 1)"
+  },
+  "0x140": {
+    "name": "Nair Landing Lag",
+    "type": "float",
+    "description": "The length of the character's nair landing lag animation in frames."
+  },
+  "0x144": {
+    "name": "Fair Landing Lag",
+    "type": "float",
+    "description": "The length of the character's fair landing lag animation in frames."
+  },
+  "0x148": {
+    "name": "Bair Landing Lag",
+    "type": "float",
+    "description": "The length of the character's bair landing lag animation in frames."
+  },
+  "0x14C": {
+    "name": "Uair Landing Lag",
+    "type": "float",
+    "description": "The length of the character's uair landing lag animation in frames."
+  },
+  "0x150": {
+    "name": "Dair Landing Lag",
+    "type": "float",
+    "description": "The length of the character's dair landing lag animation in frames."
+  },
+  "0x154": {
+    "name": "Terminal Velocity Frames for Heavy Landing",
+    "type": "int",
+    "description": "How many frames the character must be in terminal velocity for the LandingHeavy animation to play instead of LandingLight. In PM, the character just goes into LandingHeavy always."
+  },
+  "0x158": {
+    "name": "HipN Bone ID",
+    "type": "int",
+    "description": "Index of the HipN bone on the model."
+  },
+  "0x15C": {
+    "name": "Tag Height Value",
+    "type": "float",
+    "description": "The height offset that the nametag will be displayed."
+  },
+  "0x160": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x164": {
+    "name": "Walljump H Velocity",
+    "type": "float",
+    "description": "The starting horazontal velocity obtained from a Walljump."
+  },
+  "0x168": {
+    "name": "Walljump V Velocity",
+    "type": "float",
+    "description": "The starting vertical velocity obtained from a Walljump."
+  },
+  "0x16C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x170": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x174": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x178": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x17C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x180": {
+    "name": "LHandN Bone ID",
+    "type": "int",
+    "description": "Index of the LHandN bone on the model."
+  },
+  "0x184": {
+    "name": "RHandN Bone ID",
+    "type": "int",
+    "description": "Index of the RHandN bone on the model."
+  },
+  "0x188": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x18C": {
+    "name": "Water V Acceleration",
+    "type": "float",
+    "description": "The speed at which the character accelerates upward while underwater."
+  },
+  "0x190": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x194": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x198": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x19C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1A0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1A4": {
+    "name": "Spit Star Size",
+    "type": "float",
+    "description": "The size of the star effect used when Kirby spits out the character."
+  },
+  "0x1A8": {
+    "name": "Spit Star Damage",
+    "type": "int",
+    "description": "How much damage is dealt when Kirby spits out the character."
+  },
+  "0x1AC": {
+    "name": "Yoshi Capture Egg Size",
+    "type": "float",
+    "description": "The size of the egg when the character is swallowed by Yoshi's Neutral-B."
+  },
+  "0x1B0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1B4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1B8": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1BC": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1C0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1C4": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1C8": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1CC": {
+    "name": "HipN Bone ID (Again)",
+    "type": "int",
+    "description": "Index of the HipN bone on the model."
+  },
+  "0x1D0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1D4": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1D8": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x1DC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1E0": {
+    "name": "XRotN Bone ID",
+    "type": "int",
+    "description": "Index of the XRotN bone on the model."
+  },
+  "0x1E4": {
+    "name": "Ice Block X-Axis",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1E8": {
+    "name": "Ice Block Y-Axis",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1EC": {
+    "name": "Ice Block GFX Size",
+    "type": "float",
+    "description": "The size of the block of ice GFX when the character is frozen."
+  },
+  "0x1F0": {
+    "name": "Ice Block Break Jump Momentum",
+    "type": "float",
+    "description": "How much momentum the character gets when breaking out of being frozen."
+  },
+  "0x1F4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x1F8": {
+    "name": "Default V Position of Pause Camera",
+    "type": "float",
+    "description": "The defualt vertical position the camera is at relative to the character when the game is paused."
+  },
+  "0x1FC": {
+    "name": "Camera Size Front",
+    "type": "float",
+    "description": "The camera pushing effect's distance in front of the character."
+  },
+  "0x200": {
+    "name": "Camera Size Back",
+    "type": "float",
+    "description": "The camera pushing effect's distance behind the character."
+  },
+  "0x204": {
+    "name": "Camera Size Top",
+    "type": "float",
+    "description": "The camera pushing effect's distance above the character."
+  },
+  "0x208": {
+    "name": "Camera Size Bottom",
+    "type": "float",
+    "description": "The camera pushing effect's distance below the character."
+  },
+  "0x20C": {
+    "name": "Opposite of previous?",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x210": {
+    "name": "Zoom Camera Size Front",
+    "type": "float",
+    "description": "The zoom boundaries on the character in the front."
+  },
+  "0x214": {
+    "name": "Zoom Camera Size Back",
+    "type": "float",
+    "description": "The zoom boundaries on the character in the back."
+  },
+  "0x218": {
+    "name": "Zoom Camera Size Top",
+    "type": "float",
+    "description": "The zoom boundaries on the character on the top."
+  },
+  "0x21C": {
+    "name": "Zoom Camera Size Bottom",
+    "type": "float",
+    "description": "The zoom boundaries on the character on the bottom."
+  },
+  "0x220": {
+    "name": "HeadN Bone ID",
+    "type": "int",
+    "description": "The index of the HeadN bone on the model."
+  },
+  "0x224": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x228": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x22C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x230": {
+    "name": "Pause Camera Zoom Distance",
+    "type": "float",
+    "description": "The how far the camera is zoomed when centered on the character during the game being paused."
+  },
+  "0x234": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x238": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x23C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x240": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x244": {
+    "name": "Magnifying Glass Shrink Ratio",
+    "type": "float",
+    "description": "The size of the character in the magifying glass."
+  },
+  "0x248": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x24C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x250": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x254": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x258": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x25C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x260": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x264": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x268": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x26C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x270": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x274": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x278": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x27C": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x280": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x284": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x288": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x28C": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x290": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x294": {
+    "name": "2nd KO SFX Probability",
+    "type": "int",
+    "description": "When playing a regular KO sound, there is a 1 in N chance for the alternate one to play, where N is this value."
+  },
+  "0x298": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x29C": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2A0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2A4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2A8": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2AC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2B0": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2B4": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2B8": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2BC": {
+    "name": "unknown",
+    "type": "float",
+    "description": " --- "
+  },
+  "0x2C0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2C4": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2C8": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2CC": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2D0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2D4": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2D8": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  },
+  "0x2DC": {
+    "name": "Weight Dependent Throw Speed",
+    "type": "int",
+    "description": "Controls whether the speed for each throw is affected by weight. Bit set = Independent (---- DUFB)"
+  },
+  "0x2E0": {
+    "name": "unknown",
+    "type": "int",
+    "description": " --- "
+  }
+}

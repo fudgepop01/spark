@@ -1,0 +1,3 @@
+1. search for "data" (all lowercase)
+2. look for all utf-8 encoded characters surrounding it with a limit of 1 null (00) byte between them
+  - this will get

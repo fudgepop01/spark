@@ -1,0 +1,81 @@
+Events.txt:
+
+pointer
+name
+description
+types
+
+typelist:
+0: value
+1: Scalar
+2: pointer
+3: boolean
+4: --- undefined ---
+5: variable
+6: requirement
+
+--------
+
+Parameters.txt:
+
+pointer
+{name
+description}..
+
+--------
+
+Requirements.txt
+
+0-7F,
+270F-2725
+
+--------
+
+COMPILED MOVESET FILE NOTES:
+
+- a whole bunch of things are pointers
+- everything is all over the place (literally)
+- offset by 0x80 due to the moveset pac headers
+
+Captain Falcon:
+  Subaction Strings offset: 0x0001D178
+
+  EscapeB (subaction 0x045):
+    - name found at 0x0001d428
+    - pointers found at 0x0001EE2C (main), 0x0002041C (gfx), 0x00020BC8 (sfx), 0x00021374 (other)
+      data: 00040000 0001D428
+      format: <animation flags> <offset>
+
+  moveset-lang:
+    Asynchronous Timer(3);
+    Body Collision(intangible);
+    Asynchronous Timer(19);
+    Body Collision(normal);
+    Asynchronous Timer(31);
+    Allow Inturrupt;
+    (hidden) end
+
+  raw bytes:
+    00020100 00010E70
+      params:
+      - 00000001 0002BF20
+    06050100 00010E78
+      params:
+      - 00000000 00000002
+    00020100 00010E80
+      params:
+      - 00000001 001A8CE0
+    etc...
+  interpertation:
+    <action> <pointer to parameters>
+      params (offset 0x00010E70): <datatype (Scalar)> <value>
+    <action> <pointer to parameters>
+      params (offset 0x00010E78): <datatype (Value)> <value>
+    <action> <pointer to parameters>
+      params (offset 0x00010E80): <datatype (Scalar)> <value>
+    etc...
+
+Data for subaction 0x000 - Wait1:
+  initial offset: 0x0001EC04
+    data:
+  name offset: 0x0001D178
