@@ -1,3 +1,4 @@
+import { ASMCode } from './ASMParam';
 import { address, addressType, typeValue, subTypeValue, int, str, valueSize } from './parameters';
 import { toCode, sliceStringAtLengths, toHex } from './shared';
 
@@ -89,7 +90,8 @@ export const writeString = {
     subTypeValue(),
     address('where the value will be written'),
     int(32, 'value', 'number of values in the string', false),
-    str('string', 'string to write at the location', true)
+    ASMCode()
+    // str('string', 'string to write at the location', true)
   ]
 }
 

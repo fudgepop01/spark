@@ -1,87 +1,18 @@
-write32(BASE, 0x2e5ac, 0x8819000b)
-IfNotEqual16(BASE, 0x5b8a0a, 0xff0000) {
-  writeFill16(BASE, 0x5b8a0a, 0x1)
-  EndIfBaseAddr(0x0)
-  EndIfPointerAddr(0x0)
-}
-
-setGeckoRegister(GR(7), =, BASE + 0x80583ff4)
-setGeckoRegister(GR(1), =, BASE + 0x80583ff8)
-setGeckoRegister(GR(2), =, BASE + 0x80583ffc)
-setGeckoRegister(GR(3), =, BASE + 0x805b8a08)
-setGeckoRegister(GR(4), =, BASE + 0x80584000)
-setGeckoRegister(GR(6), =, BASE + 0x804de4b0)
-setRepeat(0x3, BL(0))
-geckoDirectValueOperation(GR(4) ^ 0xffffffff )
-geckoRegisterOperation(GR(4) & GR(6) )
-memoryCopy(BASE, 0x8, GR(4), GR(4), 0x00000020)
-memoryCopy(BASE, 0x8, GR(6), GR(4), 0x00000000)
-setPointerAddress('=', GR(4) + BASE + 0x0)
-IfEqual16(POINTER, 0x0, 0xff9f0060) {
-  IfEqual16(POINTER, 0x20, 0xfffb0004) {
-    geckoDirectValueOperation(GR(2) ^ 0x1 )
-    EndIfBaseAddr(0x0)
-    EndIfPointerAddr(0x0)
-  }
-}
-
-IfEqual16(BASE, 0x583ffe, 0xfffe0001) {
-  IfEqual16(POINTER, 0x0, 0xffdf0020) {
-    IfEqual16(POINTER, 0x20, 0xfffd0002) {
-      geckoDirectValueOperation(GR(2) + 0x10000 )
-      IfGreaterThan16(BASE, 0x583ffc, 0x2) {
-        writeFill16(BASE, 0x583ffc, 0x0)
-        EndIfBaseAddr(0x0)
-        EndIfPointerAddr(0x0)
-      }
-    }
-  }
-  
-  IfEqual16(POINTER, 0x20, 0xefff1000) {
-    geckoDirectValueOperation(GR(3) ^ 0x1 )
-    EndIfBaseAddr(0x0)
-    EndIfPointerAddr(0x0)
-  }
-  
-  IfEqual16(POINTER, 0x20, 0xffef0010) {
-    IfNotEqual16(BASE, 0x5b8a0a, 0xff000000) {
-      writeFill16(BASE, 0x5b8a0a, 0x100)
-      EndIfBaseAddr(0x0)
-      EndIfPointerAddr(0x0)
-    }
-  }
-  
-  IfEqual16(POINTER, 0x0, 0xffbf0040) {
-    IfEqual16(POINTER, 0x20, 0xfffe0001) {
-      geckoDirectValueOperation(GR(1) ^ 0x1 )
-      EndIfBaseAddr(0x0)
-      EndIfPointerAddr(0x0)
-    }
-  }
-  
-  IfEqual16(POINTER, 0x0, 0xf7ff0800) {
-    IfEqual16(POINTER, 0x20, 0xfffd0002) {
-      geckoDirectValueOperation(GR(1) ^ 0x10000 )
-      EndIfBaseAddr(0x0)
-      EndIfPointerAddr(0x0)
-    }
-  }
-  
-  IfEqual16(POINTER, 0x0, 0xf7ff0800) {
-    IfEqual16(POINTER, 0x20, 0xfffe0001) {
-      geckoDirectValueOperation(GR(7) ^ 0x1 )
-      EndIfBaseAddr(0x0)
-      EndIfPointerAddr(0x0)
-    }
-  }
-}
-
-setGeckoRegister(GR(4), +=, BASE + 0x8)
-setGeckoRegister(GR(6), +=, BASE + 0x8)
-execRepeat(BL(0))
 setPointerAddress('=', GR(0) + BASE + 0x90000000)
-IfEqual16(POINTER, 0x17f36a, 0xff0000) {
-  writeFill16(BASE, 0x583ff0, 0x0)
-  TerminatorBaseAddr(0x8000)
-  TerminatorPointerAddr(0x8000)
+writeString(POINTER, 0x19ac00) {
+  ps_muls0 f0, f0, f0
+  ps_msub f8, f0, f1, f0
+  stw r0, r25, 44160
+  lwz r7, r26, 62444
+  lwz r7, r26, 48052
+  stw r0, r25, 44104
+  stw r0, r25, 44032
+  stw r0, r25, 44080
+  stw r0, r25, 44096
+  oris r0, r0, 0
+  
+}
+writeString(BASE, 0xfc1c58) {
+  stw r0, r25, 44152
+  
 }

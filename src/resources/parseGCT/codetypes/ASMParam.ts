@@ -9,6 +9,13 @@ export const ASMCode = () => {
       return ['byte','halfword','word'].includes(value);
     },
     toCode(value) {
+      if (value instanceof Buffer) {
+        let intermediate = value.toString("hex")
+        value = "";
+        for (const ch of intermediate) {
+          value += parseInt(ch, 16).toString(2).padStart(4, '0');
+        }
+      }
       let commandBits = value.match(/.{1,32}/g);
       let thing = commandBits.map((bits) => {
         return Object.values(commands).filter(cmd => {
