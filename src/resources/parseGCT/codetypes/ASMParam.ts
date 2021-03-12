@@ -34,11 +34,13 @@ export const ASMCode = () => {
               params.push(param.registerConstants[parseInt(bits.substring(param.bits[0], (param.bits[1]) ? param.bits[1] + 1: param.bits[0] + 1), 2)])
             } else {
               let prefix = '';
-              if (param.displayType === 'hex') prefix = '0x';
+              let postfix = '';
+              if (['hex', 'immediate', 'signed_immediate'].includes(param.displayType)) prefix = '0x';
               if (param.displayType === 'binary') prefix = '0b';
               if (param.prefix) prefix = param.prefix;
               let paramValue = parseInt(bits.substring(param.bits[0], (param.bits[1]) ? param.bits[1] + 1: param.bits[0] + 1), 2);
               if (param.displayType === 'signed_immediate') paramValue - Math.ceil((2 ** (param.bits[1] - param.bits[0])) / 2);
+              if (['hex', 'immediate', 'signed_immediate'].includes(param.displayType)) postfix = ` /* ${paramValue} */`;
               params.push(
                 prefix + paramValue
                 .toString(({
@@ -46,10 +48,11 @@ export const ASMCode = () => {
                   'hex': 16,
                   'binary': 2,
                   'register': 10,
-                  'immediate': 10,
-                  'signed_immedaite': 10,
+                  'immediate': 16,
+                  'signed_immediate': 16,
                   'hidden': 2,
-                })[param.displayType])
+                })[param.displayType]).toUpperCase()
+                + postfix
               );
             }
           }
