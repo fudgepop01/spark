@@ -1,3 +1,132 @@
+nextCodeLocIntoBaseAddress(BASE, 0x18)
+storeBaseAddressAt(GR(0) + BASE + 0x0003af60)
+goto(always, 0x5)
 TerminatorBaseAddr(0x8000)
 TerminatorPointerAddr(0x8000)
-IfNotEqual32(BASE, 0x5664ec, 0x0) {
+IfLessThan16(BASE, 0x170662f, 0x73746167) {
+  return(undefined, BL(d))
+  IfLessThan16(BASE, 0x173745f, 0x25303258) {
+    writeFill8(BASE, 0x0, 0x0)
+    InsertASM(0x3af54) {
+      rlwinm r0, r24, 0x2 /* 2 */, 0b0, 0b11101
+      addi r4, r4, 0x3560 /* 13664 */
+      addi r3, r1, 0x50 /* 80 */
+      lwzx r4, r4, r0
+      addis r5, r0, 0x8003 /* 32771 */
+      ori r5, r5, 0xAF5C /* 44892 */
+      lwz r5, r5, 0x0 /* 0 */
+      cmpli crf0, 0, r5, 0x100 /* 256 */
+      bc 0b101, 0x0 /* 0 */, 0xE /* 14 */
+      stwu r1, r1, 0xFF80 /* 65408 */
+      stw r3, r1, 0x8 /* 8 */
+      addi r3, r1, 0x10 /* 16 */
+      addis r4, r0, 0x8003 /* 32771 */
+      ori r4, r4, 0xAF60 /* 44896 */
+      lwz r4, r4, 0x0 /* 0 */
+      addis r12, r0, 0x803F /* 32831 */
+      ori r12, r12, 0x89FC /* 35324 */
+      mtspr 288, r12
+      bcctr 0b10100, 0x0 /* 0 */
+      addi r4, r1, 0x10 /* 16 */
+      lwz r3, r1, 0x8 /* 8 */
+      lwz r1, r1, 0x0 /* 0 */
+      ori r0, r0, 0x0 /* 0 */
+    }
+    
+    InsertASM(0x3b980) {
+      lwzx r4, r4, r25
+      addis r5, r0, 0x8059 /* 32857 */
+      ori r5, r5, 0xC6D0 /* 50896 */
+      cmp crf0, 0, r4, r5
+      bc 0b101, 0x2 /* 2 */, 0xE /* 14 */
+      addis r6, r0, 0x8003 /* 32771 */
+      ori r6, r6, 0xAF60 /* 44896 */
+      lwz r5, r6, 0xFFFC /* 65532 */
+      cmpli crf0, 0, r5, 0x100 /* 256 */
+      bc 0b101, 0x0 /* 0 */, 0x9 /* 9 */
+      lwz r4, r6, 0x0 /* 0 */
+      addi r3, r1, 0xFF88 /* 65416 */
+      addis r12, r0, 0x803F /* 32831 */
+      ori r12, r12, 0x89FC /* 35324 */
+      mtspr 288, r12
+      bcctr 0b10100, 0x0 /* 0 */
+      addi r4, r1, 0xFF88 /* 65416 */
+      addi r3, r1, 0x48 /* 72 */
+      ori r0, r0, 0x0 /* 0 */
+    }
+    
+    write32(BASE, 0x3af58, 0x4800000c)
+    write32(BASE, 0x6b593c, 0x60000000)
+    write32(BASE, 0x6b842c, 0x60000000)
+    InsertASM(0x6b8c0c) {
+      addi r4, r0, 0x1 /* 1 */
+      lwz r6, r24, 0x6060 /* 24672 */
+      cmpli crf0, 0, r6, 0x5 /* 5 */
+      bc 0b101, 0x1 /* 1 */, 0x3 /* 3 */
+      stb r4, r27, 0x398 /* 920 */
+      b 0x4 /* 4 */
+      addis r6, r0, 0x803F /* 32831 */
+      ori r6, r6, 0xAF60 /* 44896 */
+      stw r6, r6, 0xFFFC /* 65532 */
+    }
+    
+    InsertASM(0x6b5864) {
+      rlwinm r0, r3, 0x0 /* 0 */, 0b10111, 0b10111
+      bc 0b1101, 0x2 /* 2 */, 0x37 /* 55 */
+      addis r30, r0, 0x8152 /* 33106 */
+      ori r30, r30, 0xC5E0 /* 50656 */
+      lwz r30, r30, 0x10 /* 16 */
+      lwz r30, r30, 0x130 /* 304 */
+      lfs f1, r30, 0x18 /* 24 */
+      fctiwz f1, f1
+      stfd f1, r1, 0xFFF8 /* 65528 */
+      lwz r0, r1, 0xFFFC /* 65532 */
+      cmpi crf0, 0, r0, 0x0 /* 0 */
+      bc 0b1100, 0x2 /* 2 */, 0x2C /* 44 */
+      cmpi crf0, 0, r0, 0x50 /* 80 */
+      bc 0b1100, 0x2 /* 2 */, 0x2A /* 42 */
+      cmpi crf0, 0, r0, 0x51 /* 81 */
+      bc 0b1100, 0x2 /* 2 */, 0x28 /* 40 */
+      cmpi crf0, 0, r0, 0x54 /* 84 */
+      bc 0b1100, 0x2 /* 2 */, 0x26 /* 38 */
+      cmpi crf0, 0, r0, 0x52 /* 82 */
+      bc 0b100, 0x0 /* 0 */, 0x1B /* 27 */
+      addi r0, r0, 0x0 /* 0 */
+      stw r0, r30, 0x18 /* 24 */
+      addis r30, r0, 0x815E /* 33118 */
+      lwz r4, r30, 0x25C8 /* 9672 */
+      ori r30, r30, 0x83E0 /* 33760 */
+      stw r0, r30, 0x0 /* 0 */
+      lwz r12, r29, 0x8 /* 8 */
+      stb r0, r12, 0x398 /* 920 */
+      lwz r3, r29, 0x228 /* 552 */
+      addis r12, r0, 0x806B /* 32875 */
+      ori r12, r12, 0x8F50 /* 36688 */
+      mtspr 288, r12
+      bcctr 0b10100, 0x0 /* 0 */
+      addis r12, r0, 0x800A /* 32778 */
+      ori r12, r12, 0xF614 /* 62996 */
+      mtspr 288, r12
+      bcctr 0b10100, 0x0 /* 0 */
+      addis r12, r0, 0x8003 /* 32771 */
+      ori r12, r12, 0xAF5C /* 44892 */
+      stw r3, r12, 0x0 /* 0 */
+      addi r4, r0, 0x2 /* 2 */
+      stw r4, r29, 0x228 /* 552 */
+      addis r12, r0, 0x806B /* 32875 */
+      ori r12, r12, 0x5928 /* 22824 */
+      mtspr 288, r12
+      bcctr 0b10100, 0x0 /* 0 */
+      addi r0, r0, 0x0 /* 0 */
+      addis r30, r0, 0x815E /* 33118 */
+      ori r30, r30, 0x83E0 /* 33760 */
+      stw r0, r30, 0x0 /* 0 */
+      lwz r30, r29, 0x8 /* 8 */
+      stb r0, r30, 0x398 /* 920 */
+      addis r30, r0, 0x8003 /* 32771 */
+      ori r30, r30, 0xAF5C /* 44892 */
+      stw r30, r30, 0x0 /* 0 */
+      rlwinm r0, r3, 0x0 /* 0 */, 0b10111, 0b10111
+      ori r0, r0, 0x0 /* 0 */
+    }
+    
